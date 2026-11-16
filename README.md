@@ -2,6 +2,8 @@
 
 Source of Weijia (Daisy) Dai's academic website, served by GitHub Pages from the `main` branch of this repository. Plain HTML and CSS, no build step, no scripts.
 
+The look follows the site's earlier design: a light gray bordered canvas, the name and navigation centered in letter-spaced capitals, Merriweather for body text, Figtree for headings, navy links. Papers are listed inline as "Title, with coauthors. Journal, details."
+
 ## Layout
 
 ```
@@ -9,6 +11,7 @@ index.html            home page
 research/index.html   papers, by status
 teaching/index.html   courses and syllabi
 style.css             the only stylesheet
+fonts/                the two typefaces, served from this site, with their licenses
 s/                    every PDF the site links to (CV, papers, appendices, syllabi)
 images/               the photo
 main/index.html       redirect from the old /main address to the home page
