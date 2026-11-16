@@ -1,126 +1,130 @@
 /* daisywdai.com: one stylesheet for the whole site. Plain HTML, no scripts. */
 
 :root {
-  --text: #1f1f1f;
-  --muted: #5a5a5a;
-  --link: #0b4f8a;
-  --rule: #d9d9d9;
+  --text: #1c1c1e;
+  --muted: #6b6b70;
+  --link: #1a56db;
+  --rule: #e6e6ea;
   --bg: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #e8e8e8;
-    --muted: #a8a8a8;
-    --link: #8fbde6;
-    --rule: #3a3a3a;
-    --bg: #161616;
+    --text: #ececef;
+    --muted: #9a9aa2;
+    --link: #8ab4f8;
+    --rule: #2c2c31;
+    --bg: #141416;
   }
 }
 
 * { box-sizing: border-box; }
 
-html { font-size: 17px; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  padding: 0 1rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  line-height: 1.55;
+  padding: 0 1.25rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 .page {
-  max-width: 44rem;
+  max-width: 42rem;
   margin: 0 auto;
-  padding: 1.5rem 0 3rem;
+  padding: 1.75rem 0 4rem;
 }
 
 /* Navigation */
 nav {
-  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  display: flex;
+  gap: 1.5rem;
   font-size: 0.95rem;
-  padding-bottom: 0.9rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--rule);
 }
 
-nav a { margin-right: 1.2rem; }
-nav a[aria-current="page"] { color: var(--text); text-decoration: none; font-weight: 600; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--text); }
+nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
 
-a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; }
-a:hover { text-decoration-thickness: 2px; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
 
 /* Headings */
 h1 {
-  font-size: 1.75rem;
-  font-weight: normal;
-  margin: 1.6rem 0 0.2rem;
+  font-size: 1.9rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 2rem 0 0.25rem;
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  margin: 2.2rem 0 0.8rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 1.6rem 0 0.5rem;
+  letter-spacing: 0.01em;
+  margin: 2.5rem 0 1rem;
 }
 
 /* Homepage header: photo beside the name */
 .intro {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.75rem;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin-top: 1.6rem;
+  margin-top: 2rem;
 }
 
 .intro img {
   width: 150px;
   height: auto;
   flex: 0 0 auto;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
-.intro h1 { margin-top: 0.2rem; }
+.intro h1 { margin-top: 0; }
 
-.affiliation { margin: 0.2rem 0 0; color: var(--muted); }
+.affiliation { margin: 0.3rem 0 0; color: var(--muted); }
+
+.quick-links { margin: 1rem 0 0; }
+.quick-links a { margin-right: 1.1rem; white-space: nowrap; }
 
 .muted { color: var(--muted); }
 
 /* Lists of papers and courses */
 ul.plain, ol.plain { list-style: none; padding-left: 0; margin: 0; }
 
-.paper, .course { margin: 0 0 1.3rem; }
+.paper, .course { margin: 0 0 1.5rem; }
 
-.paper .title { margin: 0; }
+.paper .title, .course .title { margin: 0; font-weight: 500; }
 .paper .authors, .paper .venue, .paper .links,
 .course .meta, .course .links {
-  margin: 0.1rem 0 0;
+  margin: 0.15rem 0 0;
   color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .links a { white-space: nowrap; }
 
 /* Interests on the homepage */
 ul.interests { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+ul.interests li { margin: 0.2rem 0; }
 
 footer {
-  margin-top: 3rem;
-  padding-top: 0.8rem;
+  margin-top: 4rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--rule);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 
 @media (max-width: 480px) {
   html { font-size: 16px; }
   .intro img { width: 120px; }
+  h1 { font-size: 1.6rem; }
 }
