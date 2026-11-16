@@ -1,0 +1,126 @@
+/* daisywdai.com: one stylesheet for the whole site. Plain HTML, no scripts. */
+
+:root {
+  --text: #1f1f1f;
+  --muted: #5a5a5a;
+  --link: #0b4f8a;
+  --rule: #d9d9d9;
+  --bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e8e8e8;
+    --muted: #a8a8a8;
+    --link: #8fbde6;
+    --rule: #3a3a3a;
+    --bg: #161616;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  padding: 0 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+/* Navigation */
+nav {
+  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+nav a { margin-right: 1.2rem; }
+nav a[aria-current="page"] { color: var(--text); text-decoration: none; font-weight: 600; }
+
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Headings */
+h1 {
+  font-size: 1.75rem;
+  font-weight: normal;
+  margin: 1.6rem 0 0.2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2.2rem 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.6rem 0 0.5rem;
+}
+
+/* Homepage header: photo beside the name */
+.intro {
+  display: flex;
+  gap: 1.6rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+
+.intro img {
+  width: 150px;
+  height: auto;
+  flex: 0 0 auto;
+  border-radius: 3px;
+}
+
+.intro h1 { margin-top: 0.2rem; }
+
+.affiliation { margin: 0.2rem 0 0; color: var(--muted); }
+
+.muted { color: var(--muted); }
+
+/* Lists of papers and courses */
+ul.plain, ol.plain { list-style: none; padding-left: 0; margin: 0; }
+
+.paper, .course { margin: 0 0 1.3rem; }
+
+.paper .title { margin: 0; }
+.paper .authors, .paper .venue, .paper .links,
+.course .meta, .course .links {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+}
+
+.links a { white-space: nowrap; }
+
+/* Interests on the homepage */
+ul.interests { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  html { font-size: 16px; }
+  .intro img { width: 120px; }
+}
